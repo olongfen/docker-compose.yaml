@@ -9,6 +9,6 @@
   
 ## 部署
 
-- 安装应的目录下执行: docker-compose up -d
+- 在对应的目录下执行: docker-compose up -d
 
 - 删除: docker-compose down
