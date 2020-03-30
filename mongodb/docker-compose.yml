@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      TZ: Asia/Shanghai
+      MONGO_INITDB_ROOT_USERNAME: business # 初始化数据库账号
+      MONGO_INITDB_ROOT_PASSWORD: business # 初始化数据库密码
+    volumes:
+      #        - /data/mongo/db:/data/db  # 映射数据卷
+      - /etc/localtime:/etc/localtime   # 与宿主机同步时间
+  mongoclient:
+    image: mongoclient/mongoclient
+    restart: always
+    ports:
+      - 3000:3000
+
+

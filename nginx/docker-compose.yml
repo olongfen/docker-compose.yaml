@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  nginx:
+    restart: always
+    image: nginx:1.11.6-alpine
+    ports:
+      - 8080:80
+      - 80:80
+      - 443:443
+    volumes:
+      - ./data/nginx/log:/var/log/nginx
+      - ./data/nginx/html:/usr/share/nginx/html
+      - /etc/letsencrypt:/etc/letsencrypt
+      # 有需要可以选下面两个挂载选项
+      #- ./data/nginx/conf.d:/etc/nginx/conf.d
+      #- ./data/nginx/www:/var/www
