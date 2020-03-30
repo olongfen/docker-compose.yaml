@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    volumes:
+      - /var/redis/data:/data/redis
+      - /var/redis/redis.conf:/etc/redis/redis.conf
+      - /var/redis/log:/var/log/redis
+    #    environment:
+    #      - REDIS_PASSWORD=business
+    command: redis-server  /etc/redis/redis.conf
+    ports:
+      - "6379:6379"
